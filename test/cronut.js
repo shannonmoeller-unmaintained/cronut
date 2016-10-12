@@ -11,7 +11,7 @@ test('should schedule a task', async t => {
 	);
 
 	return new Promise(resolve => {
-		setTimeout(unschedule, 5000);
-		setTimeout(resolve, 10000);
+		setTimeout(unschedule, 5500);
+		setTimeout(resolve, 10500);
 	});
 });

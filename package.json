@@ -3,7 +3,10 @@
   "version": "0.0.0-semantic-release",
   "description": "Tasty task scheduler with a mungable internal clock filling.",
   "license": "MIT",
-  "repository": "shannonmoeller/cronut",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shannonmoeller/cronut.git"
+  },
   "homepage": "https://github.com/shannonmoeller/cronut#readme",
   "author": {
     "name": "Shannon Moeller",

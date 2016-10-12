@@ -15,21 +15,21 @@ Tasty task scheduler with a mungable internal clock filling.
 ```js
 import cronut from 'cronut';
 
-const schedule = cronut();
+const cron = cronut();
 
-schedule('0 0 0 * * *', () => {
+cron('0 0 0 * * *', () => {
     console.log('another hour');
 });
 
-schedule('0 0 * * * *', () => {
+cron('0 0 * * * *', () => {
     console.log('another minute');
 });
 
-schedule('* * * * * *', () => {
+cron('* * * * * *', () => {
     console.log('another second');
 });
 
-schedule('0 30 12,24 * * 1-5', () => {
+cron('0 30 0,12 * * 1-5', () => {
     console.log('12:30 AM and PM on weekdays');
 });
 ```
@@ -37,25 +37,64 @@ schedule('0 30 12,24 * * 1-5', () => {
 ### Unschedule Tasks
 
 ```js
-const unschedule = schedule('0 * * * * *', () => {
+const removeTask = cron('0 * * * * *', () => {
     // only run 10 or so times
     console.log('another second');
 });
 
 // Unschedule after 10 seconds
-setTimeout(unschedule, 10000);
+setTimeout(removeTask, 10000);
 ```
 
 ## API
 
-### schedule(pattern, task[, options]) : Job
+### cronut()
+
+Creates a new task scheduler.
+
+```js
+import cronut from 'cronut';
+
+const cron = cronut();
+```
+
+### cron(pattern, task[, options]) : Function
+### cron.addTask(pattern, task[, options]) : Function
 
 - `pattern` `String`
 - `task` `Function`
 - `options` `Object`
   - `resolution` `Number` Default: `100`.
 
-Patterns are any valid pattern supported by [`cron-parser`](http://npm.im/cron-parser). The task is the function to be executed at the appointed times.
+Patterns are any valid pattern supported by [`cron-parser`](http://npm.im/cron-parser). The task is the function to be executed at the appointed times. Returns a function to stop the task.
+
+```js
+cron('* * * * * *', () => {
+    console.log('another second');
+});
+
+// same as
+
+cron.addTask('* * * * * *', () => {
+    console.log('another second');
+});
+
+// removable
+
+const removeTask = cron.addTask('* * * * * *', () => {
+    console.log('another second');
+});
+
+removeTask();
+```
+
+### cron.restart()
+
+Stops the clock, resets each tasks' internal schedule, then restarts the clock.
+
+```js
+cron.restart();
+```
 
 ## Why?
 

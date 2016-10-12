@@ -15,21 +15,21 @@ Tasty task scheduler with a mungable internal clock filling.
 ```js
 import cronut from 'cronut';
 
-const scheduler = cronut();
+const schedule = cronut();
 
-scheduler('0 0 0 * * *', () => {
+schedule('0 0 0 * * *', () => {
     console.log('another hour');
 });
 
-scheduler('0 0 * * * *', () => {
+schedule('0 0 * * * *', () => {
     console.log('another minute');
 });
 
-scheduler('* * * * * *', () => {
+schedule('* * * * * *', () => {
     console.log('another second');
 });
 
-scheduler('0 30 12,24 * * 1-5', () => {
+schedule('0 30 12,24 * * 1-5', () => {
     console.log('12:30 AM and PM on weekdays');
 });
 ```
@@ -37,7 +37,7 @@ scheduler('0 30 12,24 * * 1-5', () => {
 ### Unschedule Tasks
 
 ```js
-const unschedule = scheduler('0 * * * * *', () => {
+const unschedule = schedule('0 * * * * *', () => {
     // only run 10 or so times
     console.log('another second');
 });
@@ -53,8 +53,9 @@ setTimeout(unschedule, 10000);
 - `pattern` `String`
 - `task` `Function`
 - `options` `Object`
+  - `resolution` `Number` Default: `100`.
 
-Patterns are any valid pattern supported by [`cron-parser`](http://npm.im/cron-parser).
+Patterns are any valid pattern supported by [`cron-parser`](http://npm.im/cron-parser). The task is the function to be executed at the appointed times.
 
 ## Why?
 

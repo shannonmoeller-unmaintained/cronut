@@ -38,7 +38,7 @@ scheduler('0 30 12,24 * * 1-5', () => {
 
 ```js
 const unschedule = scheduler('0 * * * * *', () => {
-    // only run 10 or so
+    // only run 10 or so times
     console.log('another second');
 });
 

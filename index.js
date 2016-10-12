@@ -31,9 +31,7 @@ function cronut(options) {
 	};
 
 	cron.restart = function restart() {
-		clock.stop();
 		clock.reset();
-		clock.start();
 	};
 
 	return cron;

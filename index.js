@@ -1,9 +1,10 @@
 'use strict';
 
+var moment = require('moment-timezone');
 var Clock = require('./lib/clock');
 var Job = require('./lib/job');
 
-function cronut(options) {
+function cronut() {
 	/* global Set */
 	var jobs = new Set();
 	var clock = new Clock(jobs);
@@ -13,7 +14,7 @@ function cronut(options) {
 	}
 
 	cron.addTask = function addTask(pattern, task) {
-		var job = new Job(pattern, task, options);
+		var job = new Job(pattern, task);
 
 		jobs.add(job);
 
@@ -30,7 +31,9 @@ function cronut(options) {
 		};
 	};
 
-	cron.restart = function restart() {
+	cron.now = function now(fn) {
+		moment.now = fn;
+
 		clock.reset();
 	};
 

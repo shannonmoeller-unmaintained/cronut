@@ -13,13 +13,13 @@
     "email": "me@shannonmoeller.com",
     "url": "http://shannonmoeller.com"
   },
-  "main": "lib/cronut.js",
+  "main": "index.js",
   "files": [
     "*.js",
     "lib"
   ],
   "dependencies": {
-    "cron-parser": "^2.1.1",
+    "cron": "^1.1.1",
     "moment-timezone": "^0.5.6"
   },
   "devDependencies": {

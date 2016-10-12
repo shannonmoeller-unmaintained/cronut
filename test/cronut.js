@@ -10,10 +10,11 @@ test('should schedule a task', async t => {
 	});
 
 	return new Promise(resolve => {
-		setTimeout(removeTask, 5100);
+		setTimeout(removeTask, 5000);
+
 		setTimeout(() => {
-			t.is(count >= 4 && count <= 6, true);
+			t.ok(count >= 4 && count <= 6);
 			resolve();
-		}, 10100);
+		}, 10000);
 	});
 });

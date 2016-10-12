@@ -1,13 +1,19 @@
-const Clock = require('./lib/clock');
-const Job = require('./lib/job');
+'use strict';
+
+var Clock = require('./lib/clock');
+var Job = require('./lib/job');
 
 function cronut(options) {
 	/* global Set */
-	const jobs = new Set();
-	const clock = new Clock(jobs);
+	var jobs = new Set();
+	var clock = new Clock(jobs);
 
-	return function schedule(pattern, task) {
-		const job = new Job(pattern, task, options);
+	function cron(pattern, task) {
+		return cron.addTask(pattern, task);
+	}
+
+	cron.addTask = function addTask(pattern, task) {
+		var job = new Job(pattern, task, options);
 
 		jobs.add(job);
 
@@ -15,7 +21,7 @@ function cronut(options) {
 			clock.start();
 		}
 
-		return function unschedule() {
+		return function removeTask() {
 			jobs.delete(job);
 
 			if (!jobs.size) {
@@ -23,6 +29,14 @@ function cronut(options) {
 			}
 		};
 	};
+
+	cron.restart = function restart() {
+		clock.stop();
+		clock.reset();
+		clock.start();
+	};
+
+	return cron;
 }
 
 cronut.Clock = Clock;

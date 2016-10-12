@@ -2,16 +2,18 @@ import test from 'whim/lib/test';
 import cronut from '../index';
 
 test('should schedule a task', async t => {
-	t.plan(5);
+	let count = 0;
 
-	const scheduler = cronut();
-	const unschedule = scheduler(
-		'*/1 * * * * *',
-		() => t.pass('tick'),
-	);
+	const cron = cronut();
+	const removeTask = cron('*/1 * * * * *', () => {
+		count += 1;
+	});
 
 	return new Promise(resolve => {
-		setTimeout(unschedule, 5100);
-		setTimeout(resolve, 10100);
+		setTimeout(removeTask, 5100);
+		setTimeout(() => {
+			t.is(count >= 4 && count <= 6, true);
+			resolve();
+		}, 10100);
 	});
 });

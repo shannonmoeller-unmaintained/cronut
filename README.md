@@ -10,15 +10,50 @@ Tasty task scheduler with a mungable internal clock filling.
 
 ## Usage
 
+### Schedule Tasks
+
 ```js
+import cronut from 'cronut';
+
+const scheduler = cronut();
+
+scheduler('0 0 0 * * *', () => {
+    console.log('another hour');
+});
+
+scheduler('0 0 * * * *', () => {
+    console.log('another minute');
+});
+
+scheduler('* * * * * *', () => {
+    console.log('another second');
+});
+
+scheduler('0 30 12,24 * * 1-5', () => {
+    console.log('12:30 AM and PM on weekdays');
+});
+```
+
+### Unschedule Tasks
+
+```js
+const unschedule = scheduler('0 * * * * *', () => {
+    console.log('another second');
+});
+
+// Unschedule after 10 seconds
+setTimeout(unschedule, 10000);
 ```
 
 ## API
 
-### schedule(pattern, task) : Job
+### schedule(pattern, task[, options]) : Job
 
 - `pattern` `String`
 - `task` `Function`
+- `options` `Object`
+
+Patterns are any valid pattern supported by [`cron-parser`](http://npm.im/cron-parser).
 
 ## Why?
 

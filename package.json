@@ -15,7 +15,8 @@
   },
   "main": "lib/cronut.js",
   "files": [
-    "*.js"
+    "*.js",
+    "lib"
   ],
   "dependencies": {
     "cron-parser": "^2.1.1",

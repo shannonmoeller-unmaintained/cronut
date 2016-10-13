@@ -128,5 +128,5 @@ Licensed under [MIT](http://shannonmoeller.com/mit.txt)
 [gitter-url]:    https://gitter.im/shannonmoeller/shannonmoeller
 [npm-img]:       http://img.shields.io/npm/v/cronut.svg?style=flat-square
 [npm-url]:       https://npmjs.org/package/cronut
-[travis-img]:    http://img.shields.io/travis/shannonmoeller/cronut.svg?style=flat-square
+[travis-img]:    http://img.shields.io/travis/shannonmoeller/cronut/master.svg?style=flat-square
 [travis-url]:    https://travis-ci.org/shannonmoeller/cronut

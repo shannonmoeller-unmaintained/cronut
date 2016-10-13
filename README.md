@@ -66,7 +66,7 @@ const cron = cronut();
 - `options` `Object`
   - `resolution` `Number` Default: `100`.
 
-Patterns are any valid pattern supported by [`cron-parser`](http://npm.im/cron-parser). The task is the function to be executed at the appointed times. Returns a function to stop the task.
+Patterns are any valid pattern supported by [`cron`](http://npm.im/cron). The task is the function to be executed at the appointed times. Returns a function to stop the task.
 
 ```js
 cron('* * * * * *', () => {

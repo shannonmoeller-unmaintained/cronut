@@ -88,12 +88,17 @@ const removeTask = cron.addTask('* * * * * *', () => {
 removeTask();
 ```
 
-### cron.restart()
+### cron.now(fn)
 
-Stops the clock, resets each tasks' internal schedule, then restarts the clock.
+- `fn` `Function`
+
+Sets the [`moment.now`](http://momentjs.com/docs/#/customization/now/) function and resets internal cron timers.
 
 ```js
-cron.restart();
+cron.now(() => {
+    // It's tomorrow! Heh heh.
+    return Number(new Date()) + (24 * 60 * 60 * 1000);
+});
 ```
 
 ## Why?

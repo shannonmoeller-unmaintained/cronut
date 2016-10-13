@@ -37,6 +37,8 @@ function cronut() {
 		clock.reset();
 	};
 
+	cron.clock = clock;
+
 	return cron;
 }
 

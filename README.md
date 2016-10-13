@@ -1,6 +1,6 @@
 # `cronut`
 
-[![NPM version][npm-img]][npm-url] [![Downloads][downloads-img]][npm-url] [![Build Status][travis-img]][travis-url] [![Coverage Status][coveralls-img]][coveralls-url] [![Chat][gitter-img]][gitter-url] [![Tip][amazon-img]][amazon-url]
+[![NPM version][npm-img]][npm-url] [![Downloads][downloads-img]][npm-url] [![Build Status][travis-img]][travis-url] [![Coverage Status][coveralls-img]][coveralls-url] [![Tip][amazon-img]][amazon-url]
 
 Tasty task scheduler with a mungable internal clock filling.
 
@@ -124,8 +124,6 @@ Licensed under [MIT](http://shannonmoeller.com/mit.txt)
 [coveralls-img]: http://img.shields.io/coveralls/shannonmoeller/cronut/master.svg?style=flat-square
 [coveralls-url]: https://coveralls.io/r/shannonmoeller/cronut
 [downloads-img]: http://img.shields.io/npm/dm/cronut.svg?style=flat-square
-[gitter-img]:    http://img.shields.io/badge/gitter-join_chat-1dce73.svg?style=flat-square
-[gitter-url]:    https://gitter.im/shannonmoeller/shannonmoeller
 [npm-img]:       http://img.shields.io/npm/v/cronut.svg?style=flat-square
 [npm-url]:       https://npmjs.org/package/cronut
 [travis-img]:    http://img.shields.io/travis/shannonmoeller/cronut/master.svg?style=flat-square

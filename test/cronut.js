@@ -6,6 +6,7 @@ test('should schedule a task', async t => {
 
 	const cron = cronut();
 	const removeTask = cron('*/1 * * * * *', () => {
+		t.pass('tick');
 		count += 1;
 	});
 

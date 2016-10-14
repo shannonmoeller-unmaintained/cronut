@@ -14,7 +14,7 @@ test('should schedule a task', async t => {
 		setTimeout(removeTask, 5000);
 
 		setTimeout(() => {
-			t.ok(count >= 4 && count <= 6);
+			t.is(count, 5);
 			resolve();
 		}, 10000);
 	});
